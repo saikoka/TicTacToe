@@ -12,7 +12,7 @@
 .tile{
     border: 1px solid red;
     
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
