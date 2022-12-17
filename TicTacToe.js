@@ -26,6 +26,7 @@ const updateBoard = (id) =>{
 }
 
 const checkWinner = (row, col) =>{
+    //Querying specific rol/col indicies for a potential winner. 
     const rowWin = boardArray[row][0] === (p1Turn ? "O" : "X") && boardArray[row][1] === (p1Turn ? "O" : "X") && boardArray[row][2] === (p1Turn ? "O" : "X");
     const colWin = boardArray[0][col] === (p1Turn ? "O" : "X") && boardArray[1][col] === (p1Turn ? "O" : "X") && boardArray[2][col] === (p1Turn ? "O" : "X");
     const diagWin1 = boardArray[0][0] === (p1Turn ? "O" : "X") && boardArray[0][1] === (p1Turn ? "O" : "X") && boardArray[2][2] === (p1Turn ? "O" : "X");
@@ -37,7 +38,7 @@ const checkWinner = (row, col) =>{
  
     
     if(turnCount===8){
-        window.alert("TIE GAME!");
+        window.alert("TIE GAME!"); //TODO: Alert comes up before DOM is redrawn. 
     }else{
         p1Turn = !p1Turn;
     }
@@ -45,5 +46,5 @@ const checkWinner = (row, col) =>{
 
 const announceWinner = () =>{
     const winner = p1Turn ? "Player 1 won!" : "Player 2 Won";
-    window.alert(winner);
+    window.alert(winner); //TODO: Alert comes up before DOM is redrawn to show cross or circle, fix ordering. 
 }
