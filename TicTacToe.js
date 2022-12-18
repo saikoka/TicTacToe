@@ -14,6 +14,13 @@ document.addEventListener("click", (e)=>{
             updateBoard(e.target.id);
         }
     }
+
+    if(e.target.matches("#reset")){
+        boardArray = [["", "", ""], ["","",""], ["","",""]];
+        p1Turn= true;
+        turnCount = 0;
+
+    }
 });
 
 const updateBoard = (id) =>{
@@ -47,5 +54,8 @@ const checkWinner = (row, col) =>{
 
 const announceWinner = () =>{
     const winner = p1Turn ? "Player 1 won!" : "Player 2 Won";
-    setTimeout(()=>{window.alert(winner)}, 0); //TODO: Alert comes up before DOM is redrawn to show cross or circle, fix ordering. 
+    setTimeout(()=>{window.alert(winner)}, 0);
 }
+
+
+//TODO: Create Modal with play again or close button. Reset button should also exist if user hits close and changes mind. 

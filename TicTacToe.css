@@ -1,5 +1,5 @@
 #game-board{
-    position: absolute;
+    position: relative;
     display: inline-grid;
     border: 3px solid red;
     grid-template-columns: 200px 200px 200px;
@@ -7,6 +7,13 @@
     height: 600px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#reset{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
 }
 
 .tile{
