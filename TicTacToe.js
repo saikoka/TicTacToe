@@ -57,5 +57,3 @@ const announceWinner = () =>{
     setTimeout(()=>{window.alert(winner)}, 0);
 }
 
-
-//TODO: Create Modal with play again or close button. Reset button should also exist if user hits close and changes mind. 
