@@ -3,6 +3,7 @@ const boardArray = [["", "", ""], ["","",""], ["","",""]];
 let turnCount = 0; //Used to detect if there's a tie.  
 
 const modal = document.querySelector("#modal");
+console.log(modal);
 document.addEventListener("click", (e)=>{
     if(e.target.matches(".tile")){
         if(e.target.innerText.length === 0){
@@ -23,10 +24,6 @@ document.addEventListener("click", (e)=>{
         p1Turn= true;
         turnCount = 0;
         return;
-    }
-
-    if(e.target.matches("#modal-btn")){
-        modal.style.display="flex";
     }
 });
 
@@ -53,15 +50,18 @@ const checkWinner = (row, col) =>{
  
     
     if(!winner && turnCount===9){
-        setTimeout(()=>{window.alert("TIE GAME!"); }, 0);
+        announceWinner(true);
     }else{
         p1Turn = !p1Turn;
     }
 }
 
-const announceWinner = () =>{
-    const winner = p1Turn ? "Player 1 won!" : "Player 2 Won";
-    setTimeout(()=>{window.alert(winner)}, 0);
+const announceWinner = (tie) =>{
+    const winner = tie? "TIE GAME!" : p1Turn ? "Player 1 won!" : "Player 2 Won";
+    const modalText = document.createElement("p");
+    modalText.textContent=winner;
+    modal.prepend(modalText);
+    modal.showModal();
 }
 
 
