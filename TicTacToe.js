@@ -1,6 +1,8 @@
 let p1Turn = true; //p1 is circle, p2 is x 
 const boardArray = [["", "", ""], ["","",""], ["","",""]];
 let turnCount = 0; //Used to detect if there's a tie.  
+
+const modal = document.querySelector("#modal");
 document.addEventListener("click", (e)=>{
     if(e.target.matches(".tile")){
         if(e.target.innerText.length === 0){
@@ -13,13 +15,18 @@ document.addEventListener("click", (e)=>{
             
             updateBoard(e.target.id);
         }
+        return;
     }
 
     if(e.target.matches("#reset")){
         boardArray = [["", "", ""], ["","",""], ["","",""]];
         p1Turn= true;
         turnCount = 0;
+        return;
+    }
 
+    if(e.target.matches("#modal-btn")){
+        modal.style.display="flex";
     }
 });
 
@@ -56,4 +63,5 @@ const announceWinner = () =>{
     const winner = p1Turn ? "Player 1 won!" : "Player 2 Won";
     setTimeout(()=>{window.alert(winner)}, 0);
 }
+
 
